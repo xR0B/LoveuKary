@@ -1,0 +1,1052 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Typing Text</title>
+<link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+<style>
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,400);
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Rubik Mono One', sans-serif;
+  background: radial-gradient(ellipse at bottom, #4e3520 0%, #090a0f 100%);
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+
+.input {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  font-size: 20px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: helvetica, sans-serif;
+  bottom: 20px;
+  background: none;
+  border: 1px solid #ddd;
+  color: #eee;
+}
+
+.text, .offscreen-text {
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  position: absolute;
+  margin: 0;
+}
+
+.offscreen-text {
+  text-align: center;
+  top: -9999px;
+}
+
+.text span {
+  position: absolute;
+}
+
+@keyframes love1 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 5px;
+  }
+  25% {
+    font-size: 8px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 18px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  100% {
+    font-size: 28px;
+    opacity: 0;
+    line-height: 28px;
+    padding-left: 5px;
+  }
+}
+@-moz-keyframes love1 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 5px;
+  }
+  25% {
+    font-size: 8px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 18px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  100% {
+    font-size: 28px;
+    opacity: 0;
+    line-height: 28px;
+    padding-left: 5px;
+  }
+}
+@-webkit-keyframes love1 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 5px;
+  }
+  25% {
+    font-size: 8px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 18px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  100% {
+    font-size: 28px;
+    opacity: 0;
+    line-height: 28px;
+    padding-left: 5px;
+  }
+}
+@-o-keyframes love1 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 5px;
+  }
+  25% {
+    font-size: 8px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 18px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  100% {
+    font-size: 28px;
+    opacity: 0;
+    line-height: 28px;
+    padding-left: 5px;
+  }
+}
+@-ms-keyframes love1 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 5px;
+  }
+  25% {
+    font-size: 8px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 18px;
+    opacity: 1;
+    padding-left: 10px;
+  }
+  100% {
+    font-size: 28px;
+    opacity: 0;
+    line-height: 28px;
+    padding-left: 5px;
+  }
+}
+@keyframes love2 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 4.16666667px;
+  }
+  25% {
+    font-size: 9.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  50% {
+    padding-left: 8.33333333px;
+  }
+  75% {
+    font-size: 21.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  100% {
+    font-size: 33.6px;
+    opacity: 0;
+    line-height: 33.6px;
+    padding-left: 4.16666667px;
+  }
+}
+@-moz-keyframes love2 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 4.16666667px;
+  }
+  25% {
+    font-size: 9.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  50% {
+    padding-left: 8.33333333px;
+  }
+  75% {
+    font-size: 21.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  100% {
+    font-size: 33.6px;
+    opacity: 0;
+    line-height: 33.6px;
+    padding-left: 4.16666667px;
+  }
+}
+@-webkit-keyframes love2 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 4.16666667px;
+  }
+  25% {
+    font-size: 9.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  50% {
+    padding-left: 8.33333333px;
+  }
+  75% {
+    font-size: 21.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  100% {
+    font-size: 33.6px;
+    opacity: 0;
+    line-height: 33.6px;
+    padding-left: 4.16666667px;
+  }
+}
+@-o-keyframes love2 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 4.16666667px;
+  }
+  25% {
+    font-size: 9.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  50% {
+    padding-left: 8.33333333px;
+  }
+  75% {
+    font-size: 21.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  100% {
+    font-size: 33.6px;
+    opacity: 0;
+    line-height: 33.6px;
+    padding-left: 4.16666667px;
+  }
+}
+@-ms-keyframes love2 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 4.16666667px;
+  }
+  25% {
+    font-size: 9.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  50% {
+    padding-left: 8.33333333px;
+  }
+  75% {
+    font-size: 21.6px;
+    opacity: 1;
+    padding-left: 0px;
+  }
+  100% {
+    font-size: 33.6px;
+    opacity: 0;
+    line-height: 33.6px;
+    padding-left: 4.16666667px;
+  }
+}
+@keyframes love3 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 2.5px;
+  }
+  25% {
+    font-size: 16px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 36px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  100% {
+    font-size: 56px;
+    opacity: 0;
+    line-height: 56px;
+    padding-left: 2.5px;
+  }
+}
+@-moz-keyframes love3 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 2.5px;
+  }
+  25% {
+    font-size: 16px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 36px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  100% {
+    font-size: 56px;
+    opacity: 0;
+    line-height: 56px;
+    padding-left: 2.5px;
+  }
+}
+@-webkit-keyframes love3 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 2.5px;
+  }
+  25% {
+    font-size: 16px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 36px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  100% {
+    font-size: 56px;
+    opacity: 0;
+    line-height: 56px;
+    padding-left: 2.5px;
+  }
+}
+@-o-keyframes love3 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 2.5px;
+  }
+  25% {
+    font-size: 16px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 36px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  100% {
+    font-size: 56px;
+    opacity: 0;
+    line-height: 56px;
+    padding-left: 2.5px;
+  }
+}
+@-ms-keyframes love3 {
+  0% {
+    font-size: 0;
+    opacity: 0;
+    padding-left: 2.5px;
+  }
+  25% {
+    font-size: 16px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  50% {
+    padding-left: 0px;
+  }
+  75% {
+    font-size: 36px;
+    opacity: 1;
+    padding-left: 5px;
+  }
+  100% {
+    font-size: 56px;
+    opacity: 0;
+    line-height: 56px;
+    padding-left: 2.5px;
+  }
+}
+#hearts {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  height: 200px;
+  text-align: center;
+}
+.heart {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  vertical-align: bottom;
+  color: #FC7283;
+}
+.heart1 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  vertical-align: bottom;
+  color: #FC7283;
+  height: 100px;
+  line-height: 100px;
+  margin-left: 210px;
+  opacity: 0;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  -webkit-animation: love1 0.7s infinite ease-in-out;
+  -moz-animation: love1 0.7s infinite ease-in-out;
+  -o-animation: love1 0.7s infinite ease-in-out;
+  -ms-animation: love1 0.7s infinite ease-in-out;
+  animation: love1 0.7s infinite ease-in-out;
+}
+.heart2 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  vertical-align: bottom;
+  color: #FC7283;
+  height: 110px;
+  line-height: 110px;
+  margin-left: 180px;
+  opacity: 0;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  transform: rotate(6deg);
+  -webkit-animation: love3 0.7s infinite ease-in-out 0.3s;
+  -moz-animation: love3 0.7s infinite ease-in-out 0.3s;
+  -o-animation: love3 0.7s infinite ease-in-out 0.3s;
+  -ms-animation: love3 0.7s infinite ease-in-out 0.3s;
+  animation: love3 0.7s infinite ease-in-out 0.3s;
+}
+.heart3 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  vertical-align: bottom;
+  color: #FC7283;
+  height: 80px;
+  line-height: 80px;
+  margin-left: 150px;
+  opacity: 0;
+  -webkit-animation: love2 0.6s infinite ease-in-out 0.6s;
+  -moz-animation: love2 0.6s infinite ease-in-out 0.6s;
+  -o-animation: love2 0.6s infinite ease-in-out 0.6s;
+  -ms-animation: love2 0.6s infinite ease-in-out 0.6s;
+  animation: love2 0.6s infinite ease-in-out 0.6s;
+}
+.heart4 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  vertical-align: bottom;
+  color: #FC7283;
+  height: 90px;
+  margin-left: 120px;
+  line-height: 90px;
+  opacity: 0;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  -webkit-animation: love1 0.7s infinite ease-in-out;
+  -moz-animation: love1 0.7s infinite ease-in-out;
+  -o-animation: love1 0.7s infinite ease-in-out;
+  -ms-animation: love1 0.7s infinite ease-in-out;
+  animation: love1 0.7s infinite ease-in-out;
+}
+.heart5 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  vertical-align: bottom;
+  color: #FC7283;
+  height: 100px;
+  margin-left: 90px;
+  line-height: 80px;
+  opacity: 0;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  transform: rotate(6deg);
+  -webkit-animation: love2 0.6s infinite ease-in-out 0.3s;
+  -moz-animation: love2 0.6s infinite ease-in-out 0.3s;
+  -o-animation: love2 0.6s infinite ease-in-out 0.3s;
+  -ms-animation: love2 0.6s infinite ease-in-out 0.3s;
+  animation: love2 0.6s infinite ease-in-out 0.3s;
+}
+.heart6 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  vertical-align: bottom;
+  color: #FC7283;
+  height: 110px;
+  margin-left: 60px;
+  line-height: 90px;
+  opacity: 0;
+  -webkit-animation: love3 0.7s infinite ease-in-out 0.6s;
+  -moz-animation: love3 0.7s infinite ease-in-out 0.6s;
+  -o-animation: love3 0.7s infinite ease-in-out 0.6s;
+  -ms-animation: love3 0.7s infinite ease-in-out 0.6s;
+  animation: love3 0.7s infinite ease-in-out 0.6s;
+}
+.heart7 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  vertical-align: bottom;
+  color: #FC7283;
+  height: 90px;
+  line-height: 90px;
+  margin-left: 30px;
+  opacity: 0;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  transform: rotate(6deg);
+  -webkit-animation: love2 0.7s infinite ease-in-out 0.3s;
+  -moz-animation: love2 0.7s infinite ease-in-out 0.3s;
+  -o-animation: love2 0.7s infinite ease-in-out 0.3s;
+  -ms-animation: love2 0.7s infinite ease-in-out 0.3s;
+  animation: love2 0.7s infinite ease-in-out 0.3s;
+}
+.heart8 {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  vertical-align: bottom;
+  color: #FC7283;
+  height: 100px;
+  line-height: 100px;
+  opacity: 0;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -ms-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  -webkit-animation: love1 0.7s infinite ease-in-out;
+  -moz-animation: love1 0.7s infinite ease-in-out;
+  -o-animation: love1 0.7s infinite ease-in-out;
+  -ms-animation: love1 0.7s infinite ease-in-out;
+  animation: love1 0.7s infinite ease-in-out;
+}
+
+#cupcoffee {
+  font-family: 'Josefin Sans', sans-serif;
+  text-align:center;
+  color: #ffae00;
+   
+}
+
+.cup {
+  width:76px;
+  height:76px;
+  background:#dedede;
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  margin-left:-38px;
+  top:100px;
+  box-shadow:-4px -1px 0 rgba(0,0,0,0.2);
+}
+
+.cup:after{
+  content:"";
+  width:66px;
+  height:66px;
+  position:absolute;
+  border-radius:50%;
+  background:linear-gradient(-45deg, #cbcbcb, #f2f2f2 );
+  left:50%;
+  margin-left:-33px;
+  top:5px;
+}
+
+.coffee{
+  width:47px;
+  height:47px;
+  background:#613317;
+  /*background-image: linear-gradient(15deg, transparent 0px, transparent 29px, rgba(255,255,255,0.05) 29px, rgba(255,255,255,0.05) 47px);*/
+  border-radius:50%;
+  position:absolute;
+  left:50%;
+  margin-left:-25px;
+  z-index:1;
+  top:50%;
+  margin-top:-26px;
+  border:3px solid #e9e9e9;
+  box-shadow:-3px 2px 0 rgba(0,0,0,0.1);
+  transform:rotate(30deg);
+  transition:transform 0.3s;
+}
+
+.coffee:after{ /*assa*/
+ content:"";
+  width:15px;
+  height:8px;
+  position:absolute;
+  left:-19px;
+  top:18px;
+  background:linear-gradient(90deg, #d6d6d6, #aeaeae);
+  box-shadow:0px 2px 0 rgba(0,0,0,0.2);
+}
+
+.coffee:before {
+  content:"";
+  width:47px;
+  height:47px;
+  background-image: radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 95%), radial-gradient(5% 9%, ellipse, rgba(255,255,255,0.1), transparent 5%), radial-gradient(0% 0%, ellipse, rgba(255,255,255,0.3), transparent 55%);
+  background-image: -webkit-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 95%), -webkit-radial-gradient(5% 9%, ellipse, rgba(255,255,255,0.1), transparent 5%), -webkit-radial-gradient(0% 0%, ellipse, rgba(255,255,255,0.3), transparent 55%);
+  background-image: -moz-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 95%), -moz-radial-gradient(5% 9%, ellipse, rgba(255,255,255,0.1), transparent 5%), -moz-radial-gradient(0% 0%, ellipse, rgba(255,255,255,0.3), transparent 55%);
+  position:absolute;
+  left:0;
+  border-radius:50%;
+}
+.cup:hover .coffee {
+  transform:rotate(15deg);
+}
+
+.smoke {
+  width:70px;
+  height:100px; 
+  background:;
+  position:absolute;
+  left:50%;
+  margin-left:-40px;
+  top:43px;
+  background-image: -webkit-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -webkit-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -webkit-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), -webkit-radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
+  background-image: -moz-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -moz-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -moz-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), -moz-radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
+  background-image: radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%), radial-gradient(55% 35%, ellipse, rgba(255,255,255,0.2), transparent 15%);
+  animation:bk 11s infinite ;
+}
+
+.smoke:after {
+  content:"";
+  width:100px;
+  height:100px; 
+  background:;
+  position:absolute;
+  background-image: -webkit-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -webkit-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -webkit-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%);
+  background-image: -moz-radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), -moz-radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), -moz-radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%);
+  background-image: radial-gradient(75% 59%, ellipse, rgba(255,255,255,0.2), transparent 25%), radial-gradient(25% 70%, ellipse, rgba(255,255,255,0.2), transparent 15%), radial-gradient(35% 61%, ellipse, rgba(255,255,255,0.2), transparent 10%);
+  animation:bk 2s 1s infinite;
+}
+
+
+@keyframes bk {
+  0%{ background-position:0 0; opacity:0; }
+  15%, 85% { opacity:1;}
+  100%{ background-position:-20px -25px, -5px -25px, 0px -25px, 0px -25px; opacity:0;}
+}
+
+.txt{
+  position:absolute;
+  top:184px;
+  width:150px;
+  left:50%;
+  margin-left:-75px;
+}
+
+.txt a{
+  text-decoration:none;
+  color:#613317;
+}
+
+.txt a:hover {
+  text-decoration:underline;
+}
+</style>
+</head>
+<body translate="no">
+<div id="hearts">
+<div class="heart1">&hearts;</div>
+<div class="heart2">&hearts;</div>
+<div class="heart3">&hearts;</div>
+<div class="heart4">&hearts;</div>
+<div class="heart5">&hearts;</div>
+<div class="heart6">&hearts;</div>
+<div class="heart7">&hearts;</div>
+<div class="heart8">&hearts;</div>
+</div>
+<p id="offscreen-text" class="offscreen-text"></p>
+<p id="text" class="text"></p>
+<div id="cupcoffee">
+<div class="cup">
+<div class="coffee"></div>
+</div>
+<div class="smoke"></div>
+<p class="txt">💕 Tu mechudito! ☕<small></p>
+<svg id="svg">
+</svg>
+<input type="text" class="input" , id="input" />
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/plugins/CSSPlugin.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/easing/EasePack.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js'></script>
+<script id="rendered-js">
+const selectSVG = id => {
+  const el = document.getElementById(id);
+  return new SVGElement(el);
+};
+
+const createSVG = type => {
+  const el = document.createElementNS('http://www.w3.org/2000/svg', type);
+  return new SVGElement(el);
+};
+
+class SVGElement {
+  constructor(element) {
+    this.element = element;
+  }
+
+  set(attributeName, value) {
+    this.element.setAttribute(attributeName, value);
+  }
+
+  style(property, value) {
+    this.element.style[property] = value;
+  }}
+
+
+const colors = [
+{ main: '#FBDB4A', shades: ['#FAE073', '#FCE790', '#FADD65', '#E4C650'] },
+{ main: '#F3934A', shades: ['#F7B989', '#F9CDAA', '#DD8644', '#F39C59'] },
+{ main: '#EB547D', shades: ['#EE7293', '#F191AB', '#D64D72', '#C04567'] },
+{ main: '#9F6AA7', shades: ['#B084B6', '#C19FC7', '#916198', '#82588A'] },
+{ main: '#5476B3', shades: ['#6382B9', '#829BC7', '#4D6CA3', '#3E5782'] },
+{ main: '#2BB19B', shades: ['#4DBFAD', '#73CDBF', '#27A18D', '#1F8171'] },
+{ main: '#70B984', shades: ['#7FBE90', '#98CBA6', '#68A87A', '#5E976E'] }];
+
+const svg = selectSVG('svg');
+const text = document.getElementById('text');
+const offscreenText = document.getElementById('offscreen-text');
+const input = document.getElementById('input');
+let width = window.innerWidth;
+let height = window.innerHeight;
+let textSize = 0;
+let textCenter = 0;
+const letters = [];
+const prompt = ['k', 'a', 'r', 'y', ' ', 't', 'e', ' ', 'a', 'm', 'o', ' ', 'm', 'i', ' ', 'a', 'm', 'o', 'r', ' ', '♥'];
+let runPrompt = true;
+
+const resizePage = () => {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  svg.set('height', height);
+  svg.set('width', width);
+  svg.set('viewBox', `0 0 ${width} ${height}`);
+  resizeLetters();
+};
+
+const resizeLetters = () => {
+  textSize = width / (letters.length + 2);
+  if (textSize > 100) textSize = 100;
+  text.style.fontSize = `${textSize}px`;
+  text.style.height = `${textSize}px`;
+  text.style.lineHeight = `${textSize}px`;
+  offscreenText.style.fontSize = `${textSize}px`;
+  const textRect = text.getBoundingClientRect();
+  textCenter = textRect.top + textRect.height / 2;
+  positionLetters();
+};
+
+const positionLetters = () => {
+  letters.forEach(letter => {
+    const timing = letter.shift ? 0.1 : 0;
+    TweenLite.to(letter.onScreen, timing, { x: letter.offScreen.offsetLeft + 'px', ease: Power3.easeInOut });
+    letter.shift = true;
+  });
+};
+
+const animateLetterIn = letter => {
+  const yOffset = (0.5 + Math.random() * 0.5) * textSize;
+  TweenLite.fromTo(letter, 0.4, { scale: 0 }, { scale: 1, ease: Back.easeOut });
+  TweenLite.fromTo(letter, 0.4, { opacity: 0 }, { opacity: 1, ease: Power3.easeOut });
+  TweenLite.to(letter, 0.2, { y: -yOffset, ease: Power3.easeInOut });
+  TweenLite.to(letter, 0.2, { y: 0, ease: Power3.easeInOut, delay: 0.2 });
+  const rotation = -50 + Math.random() * 100;
+  TweenLite.to(letter, 0.2, { rotation: rotation, ease: Power3.easeInOut });
+  TweenLite.to(letter, 0.2, { rotation: 0, ease: Power3.easeInOut, delay: 0.2 });
+};
+
+const addDecor = (letter, color) => {
+  setTimeout(() => {
+    var rect = letter.getBoundingClientRect();
+    const x0 = letter.offsetLeft + letter.offsetWidth / 2;
+    const y0 = textCenter - textSize * 0.5;
+    const shade = color.shades[Math.floor(Math.random() * 4)];
+    for (var i = 0; i < 8; i++) {if (window.CP.shouldStopExecution(0)) break;addTri(x0, y0, shade);}window.CP.exitedLoop(0);
+    for (var i = 0; i < 8; i++) {if (window.CP.shouldStopExecution(1)) break;addCirc(x0, y0);}window.CP.exitedLoop(1);
+  }, 150);
+};
+
+const addTri = (x0, y0, shade) => {
+  const tri = createSVG('polygon');
+  const a = Math.random();
+  const a2 = a + (-0.2 + Math.random() * 0.4);
+  const r = textSize * 0.52;
+  const r2 = r + textSize * Math.random() * 0.2;
+  const x = x0 + r * Math.cos(2 * Math.PI * a);
+  const y = y0 + r * Math.sin(2 * Math.PI * a);
+  const x2 = x0 + r2 * Math.cos(2 * Math.PI * a2);
+  const y2 = y0 + r2 * Math.sin(2 * Math.PI * a2);
+  const triSize = textSize * 0.1;
+  const scale = 0.3 + Math.random() * 0.7;
+  const offset = triSize * scale;
+  tri.set('points', `0,0 ${triSize * 2},0 ${triSize},${triSize * 2}`);
+  tri.style('fill', shade);
+  svg.element.appendChild(tri.element);
+  TweenLite.fromTo(tri.element, 0.6, { rotation: Math.random() * 360, scale: scale, x: x - offset, y: y - offset, opacity: 1 }, { x: x2 - offset, y: y2 - offset, opacity: 0, ease: Power1.easeInOut, onComplete: () => {
+      svg.element.removeChild(tri.element);
+    } });
+};
+
+const addCirc = (x0, y0) => {
+  const circ = createSVG('circle');
+  const a = Math.random();
+  const r = textSize * 0.52;
+  const r2 = r + textSize;
+  const x = x0 + r * Math.cos(2 * Math.PI * a);
+  const y = y0 + r * Math.sin(2 * Math.PI * a);
+  const x2 = x0 + r2 * Math.cos(2 * Math.PI * a);
+  const y2 = y0 + r2 * Math.sin(2 * Math.PI * a);
+  const circSize = textSize * 0.05 * Math.random();
+  circ.set('r', circSize);
+  circ.style('fill', '#eee');
+  svg.element.appendChild(circ.element);
+  TweenLite.fromTo(circ.element, 0.6, { x: x - circSize, y: y - circSize, opacity: 1 }, { x: x2 - circSize, y: y2 - circSize, opacity: 0, ease: Power1.easeInOut, onComplete: () => {
+      svg.element.removeChild(circ.element);
+    } });
+};
+
+const addLetter = (char, i) => {
+  const letter = document.createElement('span');
+  const oLetter = document.createElement('span');
+  letter.innerHTML = char;
+  oLetter.innerHTML = char;
+  text.appendChild(letter);
+  const color = colors[i % colors.length];
+  letter.style.color = color.main;
+  offscreenText.appendChild(oLetter);
+  letters[i] = { offScreen: oLetter, onScreen: letter, char: char };
+  animateLetterIn(letter);
+  addDecor(oLetter, color);
+};
+
+const addLetters = value => {
+  value.forEach((char, i) => {
+    if (letters[i] && letters[i].char !== char) {
+      letters[i].onScreen.innerHTML = char;
+      letters[i].offScreen.innerHTML = char;
+      letters[i].char = char;
+    }
+    if (letters[i] === undefined) {
+      addLetter(char, i);
+    }
+  });
+};
+
+const animateLetterOut = (letter, i) => {
+  TweenLite.to(letter.onScreen, 0.1, { scale: 0, opacity: 0, ease: Power2.easeIn, onComplete: () => {
+      console.log('removing');
+      console.log(letter);
+      offscreenText.removeChild(letter.offScreen);
+      text.removeChild(letter.onScreen);
+      positionLetters();
+    } });
+  letters.splice(i, 1);
+};
+
+const removeLetters = value => {
+  for (let i = letters.length - 1; i >= 0; i--) {if (window.CP.shouldStopExecution(2)) break;
+    const letter = letters[i];
+    if (value[i] === undefined) {
+      animateLetterOut(letter, i);
+    }
+  }window.CP.exitedLoop(2);
+};
+
+const onInputChange = () => {
+  const value = input.value === '' ? [] : input.value.toLowerCase().split('');
+  addLetters(value);
+  removeLetters(value);
+  resizeLetters();
+};
+
+const keyup = e => {
+  if (runPrompt) {
+    input.value = '';
+    runPrompt = false;
+  };
+  onInputChange();
+};
+
+const addPrompt = i => {
+  setTimeout(() => {
+    if (runPrompt && prompt[i]) {
+      input.value = input.value + prompt[i];
+      onInputChange();
+      addPrompt(i + 1);
+    }
+  }, 300);
+};
+
+resizePage();
+window.addEventListener('resize', resizePage);
+input.addEventListener('keyup', keyup);
+input.focus();
+addPrompt(0);
+//# sourceURL=pen.js
+    </script>
+</body>
+</html>
